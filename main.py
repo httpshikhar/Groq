@@ -1,9 +1,11 @@
 import os
 from groq import Groq
 import streamlit as st
+from dotenv import load_dotenv
 
-
-os.environ["GROQ_API_KEY"] = "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"
+load_dotenv()
+api_key = os.getenv("API_KEY")
+os.environ["GROQ_API_KEY"] = api_key
 
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
